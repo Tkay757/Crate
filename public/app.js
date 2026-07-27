@@ -1835,18 +1835,31 @@ window.addEventListener('load', () => {
 });
 
 // Handle browser Back/Forward buttons smoothly
-window.addEventListener('popstate', (e) => {
-  if (e.state && e.state.panel) {
-    const targetPanel = e.state.panel;
-    // If navigating back to dashboard while a room is open, gracefully disconnect
-    if (targetPanel === 'dashboard' && currentRole) {
+window.addEventListener('popstate', async (e) => {
+  const targetPanel = (e.state && e.state.panel) ? e.state.panel : 'dashboard';
+  
+  if (targetPanel === 'dashboard' && currentRole && (activePin || Object.keys(peerConnections).length > 0)) {
+    // URL has already changed backward. Push it back forward instantly to trap them safely.
+    history.pushState({ panel: currentRole === 'sender' ? 'sender' : 'receiver' }, '', '#' + (currentRole === 'sender' ? 'sender' : 'receiver'));
+    
+    // Ask for confirmation
+    const isConfirmed = await showCustomConfirm(
+      "Leave Active Room?",
+      "You have an active transfer room. Are you sure you want to leave? This will terminate all connections."
+    );
+    
+    if (isConfirmed) {
       resetTransferState();
+      showPanel('dashboard', true);
     }
-    showPanel(targetPanel, false); // false prevents pushing duplicate history state
-  } else {
-    if (currentRole) resetTransferState();
-    showPanel('dashboard', false);
+    return; // Exit early to prevent navigating without confirmation
   }
+
+  // Safe to navigate without warning
+  if (targetPanel === 'dashboard' && currentRole) {
+    resetTransferState();
+  }
+  showPanel(targetPanel, false);
 });
 
 // Warn user if they try to close the tab or refresh while hosting/transferring
