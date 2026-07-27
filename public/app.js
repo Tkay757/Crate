@@ -169,7 +169,13 @@ const views = {
 };
 
 // Helper: Show specific panel
-function showPanel(panelId) {
+function showPanel(panelId, updateHistory = true) {
+  if (updateHistory) {
+    if (!history.state || history.state.panel !== panelId) {
+      history.pushState({ panel: panelId }, '', '#' + panelId);
+    }
+  }
+
   Object.keys(panels).forEach(key => {
     const el = panels[key];
     if (!el) return;
@@ -1816,8 +1822,41 @@ function escapeHtml(str) {
 // Automatically establish socket connection on page load
 initSocket();
 
-// Automatically load Google Sign-In SDK configuration on page load
+// Automatically fetch configuration and initialize Google Identity Services
 loadGoogleSignInConfig();
+
+// --- History API & Navigation Routing ---
+
+// Setup initial history state on load
+window.addEventListener('load', () => {
+  if (!history.state) {
+    history.replaceState({ panel: 'dashboard' }, '', window.location.pathname + '#dashboard');
+  }
+});
+
+// Handle browser Back/Forward buttons smoothly
+window.addEventListener('popstate', (e) => {
+  if (e.state && e.state.panel) {
+    const targetPanel = e.state.panel;
+    // If navigating back to dashboard while a room is open, gracefully disconnect
+    if (targetPanel === 'dashboard' && currentRole) {
+      resetTransferState();
+    }
+    showPanel(targetPanel, false); // false prevents pushing duplicate history state
+  } else {
+    if (currentRole) resetTransferState();
+    showPanel('dashboard', false);
+  }
+});
+
+// Warn user if they try to close the tab or refresh while hosting/transferring
+window.addEventListener('beforeunload', (e) => {
+  if (currentRole && (activePin || Object.keys(peerConnections).length > 0)) {
+    const msg = 'You have an active transfer room. Leaving this page will terminate the connection.';
+    e.returnValue = msg;
+    return msg;
+  }
+});
 
 // Automatically restore user login session from localStorage on page load
 const savedUser = localStorage.getItem('currentUser');
