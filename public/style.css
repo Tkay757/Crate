@@ -148,15 +148,25 @@ body {
 }
 
 .logo-text {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 1px;
   margin-left: -25px; /* Pull text much closer to counteract internal image padding */
 }
 
-.logo-text span {
-  color: #475569;
-  transition: color 5.0s cubic-bezier(0.25, 0.8, 0.25, 1); /* 5-second color transition */
+.logo-text .drop-text {
+  background: linear-gradient(135deg, #ff6b6b, #aa0000); /* Metallic Red Fusion */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.logo-text .strike-text {
+  background: linear-gradient(135deg, #ffe033, #e69500); /* Golden Yellow Fusion */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 @keyframes text-breathe {
