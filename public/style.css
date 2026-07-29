@@ -175,9 +175,6 @@ body {
   animation: text-breathe 3s ease-in-out infinite;
 }
 
-.app-header.active-mode .logo-text span {
-  color: #34d399;
-}
 
 /* Header Actions Container */
 .header-actions {
