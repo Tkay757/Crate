@@ -153,16 +153,17 @@ body {
 
 .logo-text {
   font-family: 'Pacifico', cursive;
-  font-size: 42px;
+  font-size: 62px;
   font-weight: 400;
   letter-spacing: 1px;
-  margin-left: -25px; /* Pull text much closer to counteract internal image padding */
+  margin-left: -35px; /* Pull text much closer to counteract internal image padding */
 }
 
 .logo-text .crate-text {
   background: linear-gradient(135deg, #ff6b6b, #aa0000, #ffe033, #e69500); /* Metallic Red to Golden Yellow Fusion */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px #000000; /* Thin black border */
   display: inline-block;
 }
 
