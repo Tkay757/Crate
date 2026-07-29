@@ -1,11 +1,11 @@
 /* Custom Premium Styling for DropFlow - Luxury Cream White Solid Theme */
 :root {
-  --bg-color: #ffffff; /* Solid White */
-  --panel-bg: rgba(255, 255, 255, 0.85); /* Milky translucent white glass */
-  --border-color: rgba(0, 0, 0, 0.08); /* Delicate dark boundary */
-  --text-primary: #000000; /* Pure black */
-  --text-secondary: #222222; /* Dark charcoal */
-  --text-muted: #555555; /* Medium gray */
+  --bg-color: #000000; /* Pure Black */
+  --panel-bg: rgba(20, 20, 20, 0.85); /* Dark translucent glass */
+  --border-color: rgba(255, 255, 255, 0.15); /* Delicate light boundary */
+  --text-primary: #ffffff; /* Pure white */
+  --text-secondary: #e0e0e0; /* Light gray */
+  --text-muted: #a0a0a0; /* Medium gray */
   
   /* Accent Senders (Elegant Indigo/Silver gradient) */
   --primary-color: #4f46e5;
@@ -156,9 +156,7 @@ body {
 }
 
 .logo-text .crate-text {
-  background: linear-gradient(135deg, #ff6b6b, #aa0000, #ffe033, #e69500); /* Metallic Red to Golden Yellow Fusion */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
   display: inline-block;
 }
 
