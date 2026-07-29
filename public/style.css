@@ -1923,3 +1923,14 @@ body.receiver-active {
 .app-container {
   padding-bottom: 70px;
 }
+
+/* Force pure white background and black text on settings form inputs/selects */
+#setting-room-name,
+#setting-visibility,
+#setting-person-limit,
+#setting-expiry-limit,
+.input-field,
+select {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
