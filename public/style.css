@@ -156,7 +156,9 @@ body {
 }
 
 .logo-text .crate-text {
-  color: #ffffff;
+  background: linear-gradient(135deg, #ff6b6b, #aa0000, #ffe033, #e69500); /* Metallic Red to Golden Yellow Fusion */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
