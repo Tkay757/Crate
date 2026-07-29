@@ -155,15 +155,8 @@ body {
   margin-left: -25px; /* Pull text much closer to counteract internal image padding */
 }
 
-.logo-text .drop-text {
-  background: linear-gradient(135deg, #ff6b6b, #aa0000); /* Metallic Red Fusion */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-.logo-text .strike-text {
-  background: linear-gradient(135deg, #ffe033, #e69500); /* Golden Yellow Fusion */
+.logo-text .crate-text {
+  background: linear-gradient(135deg, #ff6b6b, #aa0000, #ffe033, #e69500); /* Metallic Red to Golden Yellow Fusion */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
