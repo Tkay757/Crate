@@ -1,7 +1,7 @@
 {
-  "name": "p2p-dropstrike-share",
+  "name": "p2p-crate-share",
   "version": "1.0.0",
-  "description": "Zero-infrastructure hybrid WebRTC P2P DropStrike file-sharing application",
+  "description": "Zero-infrastructure hybrid WebRTC P2P Crate file-sharing application",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
