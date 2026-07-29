@@ -441,12 +441,14 @@ body {
   background: linear-gradient(-45deg, #0f172a, #1e3a8a, #312e81, #0f172a);
   background-size: 400% 400%;
   animation: live-gradient 12s ease infinite;
+  color: #ffffff !important;
 }
 
 .receive-card {
   background: linear-gradient(-45deg, #022c22, #064e3b, #059669, #022c22);
   background-size: 400% 400%;
   animation: live-gradient 12s ease infinite;
+  color: #ffffff !important;
 }
 
 .dashboard-option:hover {
