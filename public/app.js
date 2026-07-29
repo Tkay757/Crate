@@ -1,4 +1,4 @@
-// DropFlow - Core Client-Side Logic
+// Crate - Core Client-Side Logic
 let socket;
 let currentUser = null;
 let currentRole = null; // 'sender' or 'receiver'
