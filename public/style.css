@@ -163,8 +163,21 @@ body {
   background: linear-gradient(135deg, #ff6b6b, #aa0000, #ffe033, #e69500); /* Metallic Red to Golden Yellow Fusion */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0.5px #000000; /* Thin black border */
   display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-text .crate-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px #000000;
+  text-shadow: none;
 }
 
 @keyframes text-breathe {
