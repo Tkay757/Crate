@@ -462,15 +462,16 @@ body {
   box-shadow: 0 10px 30px var(--accent-glow);
 }
 
-/* Minimalistic Dashboard Buttons styling */
+/* High Intensity Dashboard Buttons styling */
 .dashboard-option .btn {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: var(--text-primary);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+  background: #ffffff;
+  border: 2px solid #000000;
+  color: #000000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   border-radius: 30px;
-  padding: 10px 24px;
-  font-weight: 700;
+  padding: 12px 30px;
+  font-weight: 800;
+  font-size: 18px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
