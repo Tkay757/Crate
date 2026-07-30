@@ -1510,6 +1510,14 @@ body {
     left: auto !important;
     transform: none !important;
     margin: 0 auto !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .app-header .header-actions {
+    margin: 0 auto !important;
+    width: 100% !important;
+    justify-content: center !important;
   }
 
   .app-header .user-header-profile {
