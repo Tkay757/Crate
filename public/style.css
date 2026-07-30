@@ -1457,7 +1457,7 @@ body {
   
   .dashboard-option {
     height: auto !important;
-    padding: 35px 24px !important;
+    padding: 20px 15px !important;
     gap: 16px !important;
   }
 
@@ -1488,12 +1488,16 @@ body {
   }
 
   .glass-card {
-    padding: 20px;
+    padding: 15px;
     border-radius: 16px;
   }
 
+  #panel-dashboard {
+    min-height: auto !important;
+  }
+
   /* Header styling overrides for mobile logged in state */
-  .app-header.active-mode {
+  .app-header {
     flex-direction: column !important;
     align-items: center !important;
     gap: 16px !important;
@@ -1501,14 +1505,14 @@ body {
     min-height: auto !important;
   }
 
-  .app-header.active-mode .logo-area {
+  .app-header .logo-area {
     position: relative !important;
     left: auto !important;
     transform: none !important;
     margin: 0 auto !important;
   }
 
-  .app-header.active-mode .user-header-profile {
+  .app-header .user-header-profile {
     margin: 0 auto !important;
     width: 100% !important;
     max-width: 340px !important;
