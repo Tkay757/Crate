@@ -160,7 +160,9 @@ body {
 }
 
 .logo-text .crate-text {
-  color: #ff3333; /* Bright Metallic Red */
+  background: linear-gradient(to bottom, #ff8c8c 0%, #d90000 35%, #800000 50%, #d90000 65%, #ff4d4d 100%); /* Shiny Metallic Red */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
