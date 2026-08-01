@@ -1508,7 +1508,7 @@ body {
   .app-header .logo-area {
     position: relative !important;
     left: auto !important;
-    transform: none !important;
+    transform: translateX(-15px) !important;
     margin: 0 auto !important;
     justify-content: center !important;
     width: 100% !important;
