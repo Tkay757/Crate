@@ -1527,6 +1527,22 @@ body {
     justify-content: space-between !important;
     transform: translateX(0) !important;
   }
+
+  #panel-auth,
+  #panel-sender,
+  #panel-receiver,
+  #panel-transfer,
+  #panel-lobby {
+    min-height: auto !important;
+  }
+
+  .drop-zone {
+    padding: 20px !important;
+  }
+
+  .transfer-step {
+    padding: 10px !important;
+  }
 }
 
 @media (max-width: 1024px) {
