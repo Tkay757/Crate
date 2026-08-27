@@ -1,6 +1,6 @@
-# Crate ⚡
+# DropStrike ⚡
 
-Crate is a premium, high-speed, peer-to-peer (P2P) file sharing web application inspired by multiplayer gaming lobby mechanics. It allows users to create private transfer rooms, view online lobbies, and share files directly between devices (bypassing middleman cloud servers entirely) using WebRTC and WebSockets.
+DropStrike is a premium, high-speed, peer-to-peer (P2P) file sharing web application inspired by multiplayer gaming lobby mechanics. It allows users to create private transfer rooms, view online lobbies, and share files directly between devices (bypassing middleman cloud servers entirely) using WebRTC and WebSockets.
 
 ---
 

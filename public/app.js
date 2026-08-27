@@ -1,6 +1,6 @@
 // Crate - Core Client-Side Logic
 let socket;
-let currentUser = null;
+let currentUser = { name: 'Anonymous User', email: '', picture: 'https://via.placeholder.com/32' };
 let currentRole = null; // 'sender' or 'receiver'
 let activePin = null;
 let selectedFile = null;
@@ -1823,7 +1823,7 @@ function escapeHtml(str) {
 initSocket();
 
 // Automatically fetch configuration and initialize Google Identity Services
-loadGoogleSignInConfig();
+// loadGoogleSignInConfig();
 
 // --- History API & Navigation Routing ---
 
@@ -1872,16 +1872,7 @@ window.addEventListener('beforeunload', (e) => {
 });
 
 // Automatically restore user login session from localStorage on page load
-const savedUser = localStorage.getItem('currentUser');
-if (savedUser) {
-  try {
-    const profile = JSON.parse(savedUser);
-    handleGoogleLoginSuccess(profile);
-  } catch (err) {
-    console.error('Error restoring session from localStorage:', err);
-    localStorage.removeItem('currentUser');
-  }
-}
+// Block removed for anonymous usage
 
 // -------------------------------------------------------------
 // Theme Toggle Logic

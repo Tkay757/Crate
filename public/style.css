@@ -156,7 +156,7 @@ body {
   font-size: 48px;
   font-weight: 400;
   letter-spacing: 1px;
-  margin-left: -30px; /* Adjusted negative margin for the smaller size */
+  margin-left: 0; /* Removed negative margin to maintain standard gap */
 }
 
 .logo-text .crate-text {
@@ -1516,7 +1516,7 @@ body {
   .app-header .logo-area {
     position: relative !important;
     left: auto !important;
-    transform: translateX(-15px) !important;
+    transform: none !important;
     margin: 0 auto !important;
     justify-content: center !important;
     width: 100% !important;
