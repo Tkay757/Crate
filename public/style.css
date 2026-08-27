@@ -85,20 +85,19 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  position: absolute;
-  left: 49%; /* Slightly shifted left from exact center, but more right than before */
-  transform: translateX(-50%);
-  transition: all 1.8s cubic-bezier(0.25, 1, 0.25, 1); /* Slower, majestic slide */
-  pointer-events: none; /* Let clicks pass through empty space */
+  position: relative;
+  transition: all 1.8s cubic-bezier(0.25, 1, 0.25, 1);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
 .logo-area > * {
-  pointer-events: auto; /* Re-enable clicks on actual logo elements */
-}
-
-.app-header.active-mode .logo-area {
-  left: 0;
-  transform: translateX(0);
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
 .logo-icon {
@@ -156,7 +155,8 @@ body {
   font-size: 48px;
   font-weight: 400;
   letter-spacing: 1px;
-  margin-left: 0; /* Removed negative margin to maintain standard gap */
+  margin: 0;
+  margin-left: -30px; /* Pull text closer to the crate icon */
 }
 
 .logo-text .crate-text {
@@ -1454,6 +1454,180 @@ body {
   flex-direction: column;
   gap: 6px;
   margin-top: 8px;
+}
+
+/* Subtitle & SEO Content */
+.subtitle-container {
+  text-align: center;
+  margin-top: -15px;
+  margin-bottom: 30px;
+  width: 100%;
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.25, 1), transform 0.5s cubic-bezier(0.25, 1, 0.25, 1), height 0.5s ease, margin 0.5s ease;
+  transform: translateY(0);
+  opacity: 1;
+  overflow: hidden;
+  height: 60px;
+}
+
+.main-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #334155, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 5px 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitle-desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.seo-content {
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.25, 1), transform 0.5s cubic-bezier(0.25, 1, 0.25, 1), max-height 0.5s ease, margin 0.5s ease, padding 0.5s ease;
+  transform: translateY(0);
+  opacity: 1;
+  max-height: 5000px;
+  overflow: hidden;
+}
+
+.subtitle-container.slide-up-hide,
+.seo-content.slide-up-hide {
+  opacity: 0;
+  transform: translateY(-30px);
+  max-height: 0 !important;
+  height: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  pointer-events: none;
+  border: none !important;
+}
+
+.seo-content strong {
+  color: var(--text-primary);
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.feature-box {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.feature-box h4 {
+  color: var(--text-primary);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.feature-box p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* FAQ Accordion */
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  padding: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+.faq-content {
+  padding: 0 20px 20px 20px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Legal Footer */
+.legal-footer {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-copy {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
 }
 
 /* Responsiveness */

@@ -188,6 +188,16 @@ function showPanel(panelId, updateHistory = true) {
       el.classList.remove('panel-active');
     }
   });
+
+  // Toggle extras (subtitle and SEO content) so they animate smoothly out of view
+  const extras = document.querySelectorAll('.subtitle-container, .seo-content');
+  extras.forEach(el => {
+    if (panelId === 'dashboard') {
+      el.classList.remove('slide-up-hide');
+    } else {
+      el.classList.add('slide-up-hide');
+    }
+  });
 }
 
 // Helper: Show modern dynamic toast notifications
@@ -1359,7 +1369,8 @@ if (btnModalCancel) {
 }
 
 // Sign Out Handler
-document.getElementById('btn-signout').addEventListener('click', async () => {
+const btnSignout = document.getElementById('btn-signout');
+if (btnSignout) btnSignout.addEventListener('click', async () => {
   if (currentRole === 'sender' && activePin) {
     const isConfirmed = await showCustomConfirm(
       "Sign Out?",
