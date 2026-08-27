@@ -630,6 +630,7 @@ function setupDataChannelEvents(dc, clientId) {
           if (transferTitle) {
             transferTitle.innerText = 'All Transfers Completed!';
           }
+          setTimeout(() => showAdModal('ad-modal-complete'), 1000);
         } else if (message.type === 'receiver-progress') {
           // Sender updates download progress of receiver
           if (currentRole === 'sender') {
@@ -705,6 +706,7 @@ function startStreamingForClient(clientId) {
       cancelBtn.innerText = 'Done (Close Room)';
       cancelBtn.className = 'btn btn-accent btn-block';
     }
+    setTimeout(() => showAdModal('ad-modal-complete'), 1000);
     return;
   }
 
@@ -1884,6 +1886,35 @@ window.addEventListener('beforeunload', (e) => {
 
 // Automatically restore user login session from localStorage on page load
 // Block removed for anonymous usage
+
+// -------------------------------------------------------------
+// AdSense Controllers
+function showAdModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('hidden');
+    // Attempt to push AdSense ad fill
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.warn('AdSense push failed (adblocker or script missing)');
+    }
+  }
+}
+
+// Intercept Tab Switch (Blur) for Interstitial Ad
+let hasShownBlurAd = false;
+window.addEventListener('blur', () => {
+  // Only show the ad if they are in an active session (sender or receiver panel)
+  // and they haven't seen it yet this session
+  if (currentRole && (activePin || Object.keys(peerConnections).length > 0) && !hasShownBlurAd) {
+    showAdModal('ad-modal-blur');
+    hasShownBlurAd = true; 
+  }
+});
+
+// Reset blur ad flag when session explicitly ends
+window.addEventListener('beforeunload', () => { hasShownBlurAd = false; });
 
 // -------------------------------------------------------------
 // Theme Toggle Logic

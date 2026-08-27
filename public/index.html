@@ -453,7 +453,49 @@
         <button id="btn-confirm-modal-ok" class="btn btn-danger btn-sm">Close Room</button>
       </div>
     </div>
+
+  <!-- AdSense Bottom Anchor -->
+  <div id="ad-bottom-anchor" class="ad-container">
+    <div class="ad-placeholder">Advertisement Place (Auto-Anchor)</div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-PLACEHOLDER"
+         data-ad-slot="PLACEHOLDER"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
   </div>
+
+  <!-- AdSense Transfer Complete Modal -->
+  <div id="ad-modal-complete" class="ad-modal hidden">
+    <div class="ad-modal-content glass-card">
+      <button class="btn-close-ad" onclick="document.getElementById('ad-modal-complete').classList.add('hidden')">✕</button>
+      <h3>Transfer Complete!</h3>
+      <p style="margin-bottom: 20px; color: var(--text-secondary);">Your files have been successfully shared.</p>
+      <div class="ad-placeholder large-ad">Advertisement (Transfer Complete)</div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-PLACEHOLDER"
+           data-ad-slot="PLACEHOLDER"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>
+
+  <!-- AdSense Blur Interstitial Modal -->
+  <div id="ad-modal-blur" class="ad-modal hidden">
+    <div class="ad-modal-content glass-card">
+      <button class="btn-close-ad" style="width: auto; padding: 0 15px; border-radius: 8px;" onclick="document.getElementById('ad-modal-blur').classList.add('hidden')">Return to Crate</button>
+      <h3 style="margin-bottom: 20px; margin-top: 30px;">Welcome Back</h3>
+      <p style="margin-bottom: 20px; color: var(--text-secondary);">Your transfer session is still active.</p>
+      <div class="ad-placeholder large-ad">Advertisement (Tab-Switch Interstitial)</div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-PLACEHOLDER"
+           data-ad-slot="PLACEHOLDER"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </div>  </div>
 
   <!-- Main Application Logic -->
   <script src="app.js?v=40"></script>
